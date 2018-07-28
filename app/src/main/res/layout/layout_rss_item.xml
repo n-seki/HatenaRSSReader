@@ -52,7 +52,7 @@
                 android:layout_height="0dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginStart="2dp"
-                android:text="@{rssItem.bookmarkcount}"
+                android:text="@{rssItem.bookmarkCount}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView"
                 tools:text="99999" />

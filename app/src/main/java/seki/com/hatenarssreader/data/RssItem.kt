@@ -7,7 +7,7 @@ import org.simpleframework.xml.Root
 import java.text.SimpleDateFormat
 import java.util.*
 
-@Root(name="item", strict = false)
+@Root(name = "item", strict = false)
 data class RssItem(
         @set:Element
         @get:Element
@@ -27,21 +27,21 @@ data class RssItem(
         var date: String = "",
 
         @Path("content/encoded")
-        @set:Element()
-        @get:Element
-        var encoded: String = "",
+        @set:Element(name = "encoded")
+        @get:Element(name = "encoded")
+        var content: String = "",
 
         @Path("hatena/bookmarkcount")
-        @set:Element
-        @get:Element
-        var bookmarkcount: String = ""
+        @set:Element(name = "bookmarkcount")
+        @get:Element(name = "bookmarkcount")
+        var bookmarkCount: String = ""
 ) {
     val imageUrl: String by lazy { findImageUrlFromContent() }
 
     val displayDate: String by lazy { convertDisplayDate() }
 
     private fun findImageUrlFromContent(): String {
-        val document = Jsoup.parse(encoded)
+        val document = Jsoup.parse(content)
         val imgElement = document.getElementsByTag("img")[1]
         return imgElement.attr("src")
     }
@@ -53,6 +53,6 @@ data class RssItem(
 
     companion object {
         private val FORMAT_TO_DATE = SimpleDateFormat("yyyy-MM-dd", Locale.US)
-        private val FORMAT_TO_STR = SimpleDateFormat("yyyy/MM/dd",Locale.US)
+        private val FORMAT_TO_STR = SimpleDateFormat("yyyy/MM/dd", Locale.US)
     }
 }
