@@ -1,6 +1,5 @@
 package seki.com.hatenarssreader.data
 
-import android.util.Log
 import org.jsoup.Jsoup
 import org.simpleframework.xml.Element
 import org.simpleframework.xml.Path
@@ -44,7 +43,6 @@ data class RssItem(
     private fun findImageUrlFromContent(): String {
         val document = Jsoup.parse(encoded)
         val imgElement = document.getElementsByTag("img")[1]
-        Log.d("findImageUrlFromContent", imgElement.attr("src"))
         return imgElement.attr("src")
     }
 

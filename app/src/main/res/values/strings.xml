@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Hatena RSS Reader</string>
+
+    <string name="all">総合</string>
+    <string name="social">世の中</string>
+    <string name="economics">政治と経済</string>
+    <string name="life">暮らし</string>
+
+    <string name="thumbnail">thumbnail</string>
 </resources>

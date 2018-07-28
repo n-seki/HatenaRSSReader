@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(), RssListAdapter.ItemClickListener {
     }
 
     private fun initView() {
-        val pagerAdapter = RssPagerAdapter(supportFragmentManager)
+        val pagerAdapter = RssPagerAdapter(supportFragmentManager, this)
         view_pager.adapter = pagerAdapter
         pager_tab.setupWithViewPager(view_pager)
     }
