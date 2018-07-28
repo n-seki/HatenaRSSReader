@@ -1,4 +1,4 @@
-package seki.com.hatenarssreader
+package seki.com.hatenarssreader.ui.main
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -13,6 +13,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_rss_list.*
+import seki.com.hatenarssreader.R
 import javax.inject.Inject
 
 class RssListFragment: Fragment() {

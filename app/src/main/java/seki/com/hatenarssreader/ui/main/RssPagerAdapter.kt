@@ -1,9 +1,10 @@
-package seki.com.hatenarssreader
+package seki.com.hatenarssreader.ui.main
 
 import android.content.Context
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import seki.com.hatenarssreader.R
 
 class RssPagerAdapter(fragmentManager: FragmentManager, private val context: Context)
     : FragmentPagerAdapter(fragmentManager) {

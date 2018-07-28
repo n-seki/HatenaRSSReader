@@ -1,7 +1,7 @@
 package seki.com.hatenarssreader.di
 
 import dagger.Component
-import seki.com.hatenarssreader.RssListFragment
+import seki.com.hatenarssreader.ui.main.RssListFragment
 import javax.inject.Singleton
 
 @Singleton

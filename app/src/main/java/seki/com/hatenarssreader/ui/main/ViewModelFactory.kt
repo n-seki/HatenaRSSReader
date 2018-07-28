@@ -1,4 +1,4 @@
-package seki.com.hatenarssreader
+package seki.com.hatenarssreader.ui.main
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

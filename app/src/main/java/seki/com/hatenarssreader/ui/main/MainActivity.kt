@@ -1,8 +1,11 @@
-package seki.com.hatenarssreader
+package seki.com.hatenarssreader.ui.main
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
+import seki.com.hatenarssreader.App
+import seki.com.hatenarssreader.ui.detail.DetailActivity
+import seki.com.hatenarssreader.R
 import seki.com.hatenarssreader.data.RssItem
 import seki.com.hatenarssreader.di.ApplicationComponent
 

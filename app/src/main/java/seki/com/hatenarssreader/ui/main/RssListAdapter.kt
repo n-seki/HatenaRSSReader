@@ -1,11 +1,12 @@
-package seki.com.hatenarssreader
+package seki.com.hatenarssreader.ui.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import seki.com.hatenarssreader.R
 import seki.com.hatenarssreader.data.RssItem
 
-class RssListAdapter(private val listener: RssListAdapter.ItemClickListener): RecyclerView.Adapter<RssItemViewHolder>() {
+class RssListAdapter(private val listener: ItemClickListener): RecyclerView.Adapter<RssItemViewHolder>() {
 
     var data: List<RssItem> = listOf()
         set(value) {

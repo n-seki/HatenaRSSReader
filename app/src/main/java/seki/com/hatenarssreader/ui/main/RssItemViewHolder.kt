@@ -1,4 +1,4 @@
-package seki.com.hatenarssreader
+package seki.com.hatenarssreader.ui.main
 
 import android.support.v7.widget.RecyclerView
 import android.view.View

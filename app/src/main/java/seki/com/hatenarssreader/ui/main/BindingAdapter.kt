@@ -1,4 +1,4 @@
-package seki.com.hatenarssreader
+package seki.com.hatenarssreader.ui.main
 
 import android.databinding.BindingAdapter
 import android.graphics.drawable.Drawable

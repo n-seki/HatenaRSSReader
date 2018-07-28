@@ -1,4 +1,4 @@
-package seki.com.hatenarssreader
+package seki.com.hatenarssreader.ui.detail
 
 import android.content.Context
 import android.content.Intent
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.activity_detail.*
+import seki.com.hatenarssreader.R
 
 class DetailActivity: AppCompatActivity() {
 
