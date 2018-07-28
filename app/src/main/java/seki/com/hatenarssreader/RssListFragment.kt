@@ -83,8 +83,8 @@ class RssListFragment: Fragment() {
 
     private fun refreshList(forceFetch: Boolean = false) {
         arguments?.getString(CATEGORY)?.let {
-            viewModel.init(it, forceFetch)
             swipe_refresh.isRefreshing = true
+            viewModel.init(it, forceFetch)
         }
     }
 }

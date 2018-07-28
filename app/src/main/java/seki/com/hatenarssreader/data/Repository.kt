@@ -34,7 +34,7 @@ class Repository @Inject constructor(private val hatanaService: HatenaService) {
                 if (category != "all") {
                     hatanaService.fetchHotEntry(category)
                 } else {
-                    hatanaService.fetchHotEntory()
+                    hatanaService.fetchHotEntry()
                 }
 
         call.enqueue(object : Callback<Result> {

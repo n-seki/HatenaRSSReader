@@ -12,7 +12,7 @@ interface HatenaService {
     }
 
     @GET("hotentry.rss")
-    fun fetchHotEntory(): Call<Result>
+    fun fetchHotEntry(): Call<Result>
 
     @GET("hotentry/{category}.rss")
     fun fetchHotEntry(@Path("category") category: String): Call<Result>
