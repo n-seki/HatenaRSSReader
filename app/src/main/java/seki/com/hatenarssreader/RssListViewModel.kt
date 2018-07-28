@@ -3,7 +3,6 @@ package seki.com.hatenarssreader
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.util.Log
 import seki.com.hatenarssreader.data.Repository
 import seki.com.hatenarssreader.data.RssItem
 import javax.inject.Inject

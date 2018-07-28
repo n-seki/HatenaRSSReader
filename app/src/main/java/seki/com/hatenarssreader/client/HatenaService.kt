@@ -4,7 +4,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import seki.com.hatenarssreader.data.Result
-import seki.com.hatenarssreader.data.RssItem
 
 interface HatenaService {
 

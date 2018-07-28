@@ -5,9 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
-import android.view.View
 import android.webkit.WebViewClient
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity: AppCompatActivity() {

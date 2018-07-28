@@ -1,6 +1,5 @@
 package seki.com.hatenarssreader.data
 
-import android.util.Log
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,7 +40,6 @@ class Repository @Inject constructor(private val hatanaService: HatenaService) {
         call.enqueue(object : Callback<Result> {
             override fun onFailure(call: Call<Result>?, t: Throwable?) {
                 listener.onFailFetch()
-                Log.d("onFailure", t?.message)
             }
 
             override fun onResponse(call: Call<Result>?, response: Response<Result>?) {
