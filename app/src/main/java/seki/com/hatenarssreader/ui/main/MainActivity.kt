@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.google.android.gms.oss.licenses.OssLicensesActivity
+import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import seki.com.hatenarssreader.App
 import seki.com.hatenarssreader.ui.detail.DetailActivity
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity(), RssListAdapter.ItemClickListener {
             }
 
     private fun showLicense() {
-        val intent = Intent(this, OssLicensesActivity::class.java)
+        val intent = Intent(this, OssLicensesMenuActivity::class.java)
         startActivity(intent)
     }
 
