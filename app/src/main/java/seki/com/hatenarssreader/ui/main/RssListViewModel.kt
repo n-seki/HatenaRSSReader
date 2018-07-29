@@ -12,7 +12,7 @@ class RssListViewModel @Inject constructor(private val repository: Repository): 
     private val _rssListData: MutableLiveData<List<RssItem>> = MutableLiveData()
     val rssListData: LiveData<List<RssItem>> = _rssListData
 
-    fun init(category: String, forceFetch: Boolean = false) {
+    fun init(category: String, forceFetch: Boolean) {
         repository.getHotEntry(category, forceFetch,  object : Repository.FetchCallbackListener {
             override fun onFailFetch() {
                 _rssListData.postValue(listOf())
