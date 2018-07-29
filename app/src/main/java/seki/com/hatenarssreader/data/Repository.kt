@@ -43,9 +43,13 @@ class Repository @Inject constructor(private val hatanaService: HatenaService) {
             }
 
             override fun onResponse(call: Call<Result>?, response: Response<Result>?) {
-                response?.body() ?: listener.onFailFetch()
+                val rssItemList = response?.body()?.item
 
-                val rssItemList = response?.body()?.item!!
+                if (rssItemList == null) {
+                    listener.onFailFetch()
+                    return
+                }
+
                 cache += category to rssItemList
                 listener.onSuccessFetch(rssItemList)
             }
