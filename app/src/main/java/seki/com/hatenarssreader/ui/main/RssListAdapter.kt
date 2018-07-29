@@ -31,8 +31,15 @@ class RssListAdapter(private val listener: ItemClickListener): RecyclerView.Adap
     override fun onBindViewHolder(viewHolder: RssItemViewHolder, position: Int) {
         val item = data[position]
         viewHolder.binder.rssItem = item
-        viewHolder.binder.root.setOnClickListener {
+
+        viewHolder.binder.root.setOnClickListener { view ->
+            view.isEnabled = false
+
             listener.onClickRssItem(item)
+
+            view.postDelayed({
+                view.isEnabled = true
+            }, 1000)
         }
     }
 }
