@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
 import seki.com.hatenarssreader.R
 
-class RssPagerAdapter(fragmentManager: FragmentManager, private val context: Context)
+class RssPagerAdapter(fragmentManager: FragmentManager, context: Context)
     : FragmentPagerAdapter(fragmentManager) {
 
     private val categoryAndTitle: Map<Int, Pair<String, String>> =

@@ -21,7 +21,7 @@ class ApplicationModule {
 
     @Singleton
     @Provides
-    fun proviceHatanaServie(hatenaRetrofit: Retrofit): HatenaService {
+    fun proviceHatanaService(hatenaRetrofit: Retrofit): HatenaService {
         return hatenaRetrofit.create(HatenaService::class.java)
     }
 
