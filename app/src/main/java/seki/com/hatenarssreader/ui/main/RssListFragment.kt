@@ -55,8 +55,8 @@ class RssListFragment: Fragment() {
         return view
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         refreshList()
     }
 
