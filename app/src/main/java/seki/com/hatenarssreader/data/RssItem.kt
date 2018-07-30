@@ -17,8 +17,8 @@ data class RssItem(
         @get:Element
         var link: String = "",
 
-        @set:Element
-        @get:Element
+        @set:Element(required = false)
+        @get:Element(required = false)
         var description: String = "",
 
         @Path("dc/date")
