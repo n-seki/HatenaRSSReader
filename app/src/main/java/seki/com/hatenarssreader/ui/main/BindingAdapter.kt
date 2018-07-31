@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
 
-@BindingAdapter("bind:imageUrl", "bing:errorImage")
+@BindingAdapter("imageUrl", "errorImage")
 fun loadImage(imageView: ImageView, imageUrl: String, errorImage: Drawable) {
     if (imageUrl.isEmpty()) {
         imageView.background = errorImage
