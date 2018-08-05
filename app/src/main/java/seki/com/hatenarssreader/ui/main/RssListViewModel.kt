@@ -2,6 +2,7 @@ package seki.com.hatenarssreader.ui.main
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
+import android.arch.lifecycle.Transformations
 import android.arch.lifecycle.ViewModel
 import seki.com.hatenarssreader.data.Repository
 import seki.com.hatenarssreader.data.RssItem
@@ -9,18 +10,17 @@ import javax.inject.Inject
 
 class RssListViewModel @Inject constructor(private val repository: Repository): ViewModel() {
 
-    private val _rssListData: MutableLiveData<List<RssItem>> = MutableLiveData()
-    val rssListData: LiveData<List<RssItem>> = _rssListData
+    // <category, forceFetch>
+    private val _fetchInfo: MutableLiveData<Pair<String, Boolean>> = MutableLiveData()
+    val rssListData: LiveData<List<RssItem>>
+
+    init {
+        rssListData = Transformations.switchMap(_fetchInfo) {
+            repository.getHotEntry(it.first, it.second)
+        }
+    }
 
     fun init(category: String, forceFetch: Boolean) {
-        repository.getHotEntry(category, forceFetch,  object : Repository.FetchCallbackListener {
-            override fun onFailFetch() {
-                _rssListData.postValue(listOf())
-            }
-
-            override fun onSuccessFetch(hotEntryList: List<RssItem>) {
-                _rssListData.postValue(hotEntryList)
-            }
-        })
+        _fetchInfo.postValue(category to forceFetch)
     }
 }

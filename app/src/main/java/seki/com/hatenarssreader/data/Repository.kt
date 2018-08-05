@@ -1,5 +1,7 @@
 package seki.com.hatenarssreader.data
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,20 +18,15 @@ class Repository @Inject constructor(private val hatanaService: HatenaService) {
         fun onFailFetch()
     }
 
-    fun getHotEntry(category: String, forceFetch: Boolean, listener: FetchCallbackListener) {
-        if (forceFetch) {
-            fetchHotEntry(category, listener)
-            return
+    fun getHotEntry(category: String, forceFetch: Boolean): LiveData<List<RssItem>> {
+        if (forceFetch || category !in cache.keys) {
+            return fetchHotEntry(category)
         }
 
-        val cachedCategory = cache.keys
-        when (category) {
-            in cachedCategory -> listener.onSuccessFetch(cache[category]!!)
-            else -> fetchHotEntry(category, listener)
-        }
+        return fetchHotEntry(category)
     }
 
-    private fun fetchHotEntry(category: String, listener: FetchCallbackListener) {
+    private fun fetchHotEntry(category: String): LiveData<List<RssItem>> {
         val call: Call<Result> =
                 if (category != "all") {
                     hatanaService.fetchHotEntry(category)
@@ -37,22 +34,26 @@ class Repository @Inject constructor(private val hatanaService: HatenaService) {
                     hatanaService.fetchHotEntry()
                 }
 
+        val rssItemList = MutableLiveData<List<RssItem>>()
+
         call.enqueue(object : Callback<Result> {
             override fun onFailure(call: Call<Result>?, t: Throwable?) {
-                listener.onFailFetch()
+                rssItemList.postValue(listOf())
             }
 
             override fun onResponse(call: Call<Result>?, response: Response<Result>?) {
-                val rssItemList = response?.body()?.item
+                val result = response?.body()?.item
 
-                if (rssItemList == null) {
-                    listener.onFailFetch()
+                if (result == null) {
+                    rssItemList.postValue(listOf())
                     return
                 }
 
-                cache += category to rssItemList
-                listener.onSuccessFetch(rssItemList)
+                cache += category to result
+                rssItemList.postValue(result)
             }
         })
+
+        return rssItemList
     }
 }
