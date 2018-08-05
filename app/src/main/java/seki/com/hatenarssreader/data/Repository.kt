@@ -13,11 +13,6 @@ class Repository @Inject constructor(private val hatanaService: HatenaService) {
 
     private val cache: MutableMap<String, List<RssItem>> = ConcurrentHashMap()
 
-    interface FetchCallbackListener {
-        fun onSuccessFetch(hotEntryList: List<RssItem>)
-        fun onFailFetch()
-    }
-
     fun getHotEntry(category: String, forceFetch: Boolean): LiveData<List<RssItem>> {
         if (forceFetch || category !in cache.keys) {
             return fetchHotEntry(category)
