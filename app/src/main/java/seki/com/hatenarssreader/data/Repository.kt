@@ -18,7 +18,8 @@ class Repository @Inject constructor(private val hatanaService: HatenaService) {
             return fetchHotEntry(category)
         }
 
-        return fetchHotEntry(category)
+        val data = MutableLiveData<List<RssItem>>()
+        return data.apply { postValue(cache.getValue(category)) }
     }
 
     private fun fetchHotEntry(category: String): LiveData<List<RssItem>> {
